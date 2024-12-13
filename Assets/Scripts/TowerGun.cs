@@ -6,12 +6,15 @@ public class TowerGun : MonoBehaviour
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private float _detectionRadius;
     [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private Rocket _rocketPrefab;
+    [SerializeField] private float _shootDelay;
+    [SerializeField] private Transform _firePoint;
 
     private Enemy _targetEnemy;
 
     void Start()
     {
-
+        StartCoroutine(ShootingCoroutine());
     }
 
     void Update()
@@ -74,4 +77,20 @@ public class TowerGun : MonoBehaviour
         transform.eulerAngles = Vector3.forward * angle;
     }
 
+    private IEnumerator ShootingCoroutine()
+    {
+        while (true)
+        {
+            if (_targetEnemy == null)
+            {
+                yield return null;
+            }
+            else
+            {
+                Rocket newRocket = Instantiate(_rocketPrefab, _firePoint.position, transform.rotation);
+                newRocket.SetTarget(_targetEnemy);
+                yield return new WaitForSeconds(_shootDelay);
+            }
+        }
+    }
 }
