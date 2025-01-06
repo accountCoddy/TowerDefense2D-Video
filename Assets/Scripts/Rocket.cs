@@ -34,7 +34,7 @@ public class Rocket : MonoBehaviour
             bool isKillingEnemy;
             isKillingEnemy = enemy.GetDamage(_damage);
 
-            if(isKillingEnemy == true)
+            if (isKillingEnemy == true)
             {
                 Instantiate(_decalExplosionPrefab, enemy.transform.position, Quaternion.identity);
             }

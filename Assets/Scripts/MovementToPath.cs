@@ -3,8 +3,8 @@ using UnityEngine;
 public class MovementToPath : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private Path _path;
 
+    private Path _path;
     private int _nextWaypoint;
     private Rigidbody2D _rb;
 
@@ -15,6 +15,11 @@ public class MovementToPath : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_path == null)
+        {
+            return;
+        }
+
         if (_nextWaypoint >= _path.Waypoints.Count)
         {
             _speed = 0;
@@ -34,5 +39,10 @@ public class MovementToPath : MonoBehaviour
         {
             _nextWaypoint++;
         }
+    }
+
+    public void SetPath(Path path)
+    {
+        _path = path;
     }
 }

@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _hp;
-    void Start()
-    {
+    [SerializeField] private MovementToPath _movementToPath;
 
+    public void Initialize(Path path)
+    {
+        _movementToPath.SetPath(path);
     }
 
     public bool GetDamage(int damage)
