@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private int _hp;
     [SerializeField] private MovementToPath _movementToPath;
+    [SerializeField] private int _damage;
 
     public void Initialize(Path path)
     {
@@ -26,6 +27,14 @@ public class Enemy : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out DefensiveBase defensiveBase))
+        {
+            defensiveBase.GetDamage(_damage);
         }
     }
 

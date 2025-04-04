@@ -3,7 +3,7 @@ using UnityEngine;
 public class Balance : MonoBehaviour
 {
     [SerializeField] private int _value;
-    [SerializeField] private BalanceView _balanceView;
+    [SerializeField] private ValueView _balanceView;
 
     private void Start()
     {

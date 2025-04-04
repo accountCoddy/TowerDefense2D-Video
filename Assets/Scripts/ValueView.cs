@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class BalanceView : MonoBehaviour
+public class ValueView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _valueText;
 
