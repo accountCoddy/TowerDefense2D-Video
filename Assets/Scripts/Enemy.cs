@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    public UnityEvent OnDieEvent = new();
+
     [SerializeField] private int _hp;
     [SerializeField] private MovementToPath _movementToPath;
 
@@ -17,6 +19,7 @@ public class Enemy : MonoBehaviour
 
         if (_hp <= 0)
         {
+            OnDieEvent.Invoke();
             Destroy(gameObject);
             return true;
         }
@@ -25,4 +28,5 @@ public class Enemy : MonoBehaviour
             return false;
         }
     }
+
 }

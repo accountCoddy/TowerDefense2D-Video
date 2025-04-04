@@ -10,7 +10,7 @@ public class BuyButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-       OnTryBuyEvent.Invoke(_price, this);
+        OnTryBuyEvent.Invoke(_price, this);
     }
 
     public void BuyConfirm()

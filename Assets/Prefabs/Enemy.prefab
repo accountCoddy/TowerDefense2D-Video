@@ -180,4 +180,4 @@ MonoBehaviour:
       m_Calls: []
   _hp: 3
   _movementToPath: {fileID: 1554243999529420847}
-  _reward: 0
+  _damage: 1
